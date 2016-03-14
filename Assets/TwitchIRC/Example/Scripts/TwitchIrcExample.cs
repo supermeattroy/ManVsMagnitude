@@ -12,6 +12,7 @@ public class TwitchIrcExample : MonoBehaviour
 
     public Text ChatText;
     public InputField MessageText;
+	public Monster theMonster;
 
     void Start()
     {
@@ -61,6 +62,19 @@ public class TwitchIrcExample : MonoBehaviour
     {
         ChatText.text += "<b>" + channelMessageArgs.From + ":</b> " + channelMessageArgs.Message + "\n";
         Debug.Log("MESSAGE: " + channelMessageArgs.From + ": " + channelMessageArgs.Message);
+		//V: added functionality to check for various commands
+		if (channelMessageArgs.Message == "!up") {
+			theMonster.giveCommand(1);
+		}
+		else if (channelMessageArgs.Message == "!down") {
+			theMonster.giveCommand(2);
+		}
+		else if (channelMessageArgs.Message == "!left") {
+			theMonster.giveCommand(3);
+		}
+		else if (channelMessageArgs.Message == "!right") {
+			theMonster.giveCommand(4);
+		}
     }
 
     //Get the name of the user who joined to channel 
@@ -83,5 +97,5 @@ public class TwitchIrcExample : MonoBehaviour
     {
         Debug.Log(exeption);
     }
-   
+
 }
