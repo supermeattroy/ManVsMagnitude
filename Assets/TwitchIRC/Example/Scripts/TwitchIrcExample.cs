@@ -12,7 +12,7 @@ public class TwitchIrcExample : MonoBehaviour
 
     public Text ChatText;
     public InputField MessageText;
-	public Monster theMonster;
+	public CommandBuffer cBuff;
 
     void Start()
     {
@@ -64,16 +64,16 @@ public class TwitchIrcExample : MonoBehaviour
         Debug.Log("MESSAGE: " + channelMessageArgs.From + ": " + channelMessageArgs.Message);
 		//V: added functionality to check for various commands
 		if (channelMessageArgs.Message == "!up") {
-			theMonster.giveCommand(1);
+			cBuff.input(0);
 		}
 		else if (channelMessageArgs.Message == "!down") {
-			theMonster.giveCommand(2);
+			cBuff.input(1);
 		}
 		else if (channelMessageArgs.Message == "!left") {
-			theMonster.giveCommand(3);
+			cBuff.input(2);
 		}
 		else if (channelMessageArgs.Message == "!right") {
-			theMonster.giveCommand(4);
+			cBuff.input(3);
 		}
     }
 
