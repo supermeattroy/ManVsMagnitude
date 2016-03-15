@@ -21,7 +21,7 @@ public class CommanderUnitControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector3 mousePosWorld = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, mousePosWorld - transform.position, out hit))
