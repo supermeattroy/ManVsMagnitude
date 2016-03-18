@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Irc;
 using UnityEngine;
 using UnityEngine.UI;
-using Alert;
 
 public class TwitchIrcExample : MonoBehaviour
 {
