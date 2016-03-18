@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Irc;
 using UnityEngine;
 using UnityEngine.UI;
+using Alert;
 
 public class TwitchIrcExample : MonoBehaviour
 {
@@ -74,6 +75,9 @@ public class TwitchIrcExample : MonoBehaviour
 		}
 		else if (channelMessageArgs.Message == "!right") {
 			cBuff.input(3);
+		}
+		else if (channelMessageArgs.Message == "!alert") {
+			//instantiate a prefab "Alert" at the appropriate location on the canvas
 		}
     }
 
