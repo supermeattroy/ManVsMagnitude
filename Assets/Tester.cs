@@ -8,7 +8,7 @@ public class Tester : MonoBehaviour {
 	void Start () {
 		for (int i=0; i<5; i++) {
 			Instantiate(lert,new Vector3((float)i,(float)i),Quaternion.identity);
-			lert.SetParent(TwitchIrcExample,false);
+			//lert.SetParent(TwitchIrcExample,false);
 		}
 	}
 	
