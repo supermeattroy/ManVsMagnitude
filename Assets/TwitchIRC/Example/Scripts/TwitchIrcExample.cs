@@ -75,6 +75,9 @@ public class TwitchIrcExample : MonoBehaviour
 		else if (channelMessageArgs.Message == "!right") {
 			cBuff.input(3);
 		}
+		else if (channelMessageArgs.Message == "!alert") {
+			//instantiate a prefab "Alert" at the appropriate location on the canvas
+		}
     }
 
     //Get the name of the user who joined to channel 

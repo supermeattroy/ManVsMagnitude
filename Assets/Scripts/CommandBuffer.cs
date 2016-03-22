@@ -4,14 +4,14 @@ using System.Collections;
 public class CommandBuffer : MonoBehaviour {
 
 	public int threshold = 5;
-	public Monster theMonster;
+	//public Monster theMonster;
 
 	public int [] moveBuffers = new int[4];
 
-	void input(int i) {
+	public void input(int i) {
 		moveBuffers [i]++;
 		if (moveBuffers[i] >= threshold) {
-			theMonster.command(i);
+			//theMonster.command(i);
 			moveBuffers[i] = 0;
 		}
 	}
