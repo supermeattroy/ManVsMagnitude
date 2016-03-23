@@ -26,6 +26,7 @@ public class MonsterDebugControls : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.DownArrow)) cb.Input(1);
             if (Input.GetKeyDown(KeyCode.LeftArrow)) cb.Input(2);
             if (Input.GetKeyDown(KeyCode.RightArrow)) cb.Input(3);
+            if (Input.GetKeyDown(KeyCode.Space)) cb.Input(4);
         }
     }
 }

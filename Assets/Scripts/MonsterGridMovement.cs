@@ -29,6 +29,9 @@ public class MonsterGridMovement : MonoBehaviour
 
             case 3: Right();
                     break;
+
+            case 4: Special();
+                    break;
         }
     }
 
@@ -37,6 +40,7 @@ public class MonsterGridMovement : MonoBehaviour
         if(y<9) y += 1;
 
         transform.position = gm.Find(x, y);
+        gm.Smash(x, y);
     }
 
     public void Down()
@@ -44,6 +48,7 @@ public class MonsterGridMovement : MonoBehaviour
         if (y > 0) y -= 1;
 
         transform.position = gm.Find(x, y);
+        gm.Smash(x, y);
     }
 
     public void Left()
@@ -51,6 +56,7 @@ public class MonsterGridMovement : MonoBehaviour
         if (x > 0) x -= 1;
 
         transform.position = gm.Find(x, y);
+        gm.Smash(x, y);
     }
 
     public void Right()
@@ -58,5 +64,11 @@ public class MonsterGridMovement : MonoBehaviour
         if (x < 9) x += 1;
 
         transform.position = gm.Find(x, y);
+        gm.Smash(x, y);
+    }
+
+    public void Special()
+    {
+
     }
 }

@@ -28,4 +28,9 @@ public class GridManager : MonoBehaviour {
     {
         return grid[x, y].transform.position;
     }
+
+    public void Smash(int x, int y)
+    {
+        grid[x, y].SetActive(false);
+    }
 }

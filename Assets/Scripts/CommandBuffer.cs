@@ -5,18 +5,33 @@ using System.Collections;
 public class CommandBuffer : MonoBehaviour {
 
 	public int threshold = 5;
+    public int specialThreshold = 10;
 	public MonsterGridMovement monster;
 
-	public int [] moveBuffers = new int[4];
-    public Slider[] directionalSliders = new Slider[4];
+	public int [] moveBuffers = new int[5];
+    public int specialBuffer;
+    public Slider[] uiSliders = new Slider[5];
 
 	public void Input(int i) {
-		moveBuffers [i]++;
-		if (moveBuffers[i] >= threshold) {
-			monster.Command(i);
-			moveBuffers[i] = 0;
-		}
+        if (i == 4) {
+            specialBuffer++;
+            if (specialBuffer >= specialThreshold) {
+                monster.Command(i);
+                specialBuffer = 0;
+            }
 
-        directionalSliders[i].value = moveBuffers[i];
+            uiSliders[i].value = specialBuffer;
+        }
+        else {
+            moveBuffers[i]++;
+
+            if (moveBuffers[i] >= threshold) {
+                monster.Command(i);
+                moveBuffers[i] = 0;
+            }
+            
+            uiSliders[i].value = moveBuffers[i];
+        }
+
     }
 }
