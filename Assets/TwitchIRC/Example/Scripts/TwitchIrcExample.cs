@@ -64,16 +64,16 @@ public class TwitchIrcExample : MonoBehaviour
         Debug.Log("MESSAGE: " + channelMessageArgs.From + ": " + channelMessageArgs.Message);
 		//V: added functionality to check for various commands
 		if (channelMessageArgs.Message == "!up") {
-			cBuff.input(0);
+			cBuff.Input(0);
 		}
 		else if (channelMessageArgs.Message == "!down") {
-			cBuff.input(1);
+			cBuff.Input(1);
 		}
 		else if (channelMessageArgs.Message == "!left") {
-			cBuff.input(2);
+			cBuff.Input(2);
 		}
 		else if (channelMessageArgs.Message == "!right") {
-			cBuff.input(3);
+			cBuff.Input(3);
 		}
 		else if (channelMessageArgs.Message == "!alert") {
 			//instantiate a prefab "Alert" at the appropriate location on the canvas

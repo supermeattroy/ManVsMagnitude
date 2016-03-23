@@ -15,6 +15,23 @@ public class MonsterGridMovement : MonoBehaviour
         transform.position = gm.Find(x, y);
     }
 
+    public void Command(int i)
+    {
+        switch (i) {
+            case 0: Up();
+                    break;
+
+            case 1: Down();
+                    break;
+
+            case 2: Left();
+                    break;
+
+            case 3: Right();
+                    break;
+        }
+    }
+
     public void Up()
     {
         if(y<9) y += 1;
