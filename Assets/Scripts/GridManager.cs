@@ -6,7 +6,7 @@ public class GridManager : MonoBehaviour {
     public GameObject[,] grid = new GameObject[10,10];
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 	    foreach (Transform child in transform) {
             int x, y;
             Vector3 holder = child.transform.position;
@@ -23,4 +23,9 @@ public class GridManager : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public Vector3 Find(int x, int y)
+    {
+        return grid[x, y].transform.position;
+    }
 }

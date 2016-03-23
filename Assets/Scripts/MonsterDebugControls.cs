@@ -3,7 +3,8 @@ using System.Collections;
 
 public class MonsterDebugControls : MonoBehaviour {
 
-    public MonsterMovementHolder monster;
+    //public MonsterMovementHolder monster;
+    public MonsterGridMovement monster;
 
 	// Use this for initialization
 	void Start () {
