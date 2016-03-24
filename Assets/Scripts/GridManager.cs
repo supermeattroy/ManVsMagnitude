@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GridManager : MonoBehaviour {
 
+    public int gridWidth, gridHeight;
     public GameObject[,] grid = new GameObject[10,10];
 
 	// Use this for initialization
@@ -31,6 +32,18 @@ public class GridManager : MonoBehaviour {
 
     public void Smash(int x, int y)
     {
+        if (!GridBounds(x, y)) return;
+
         grid[x, y].SetActive(false);
+    }
+
+    bool GridBounds(int x, int y)
+    {
+        if (x < 0) return false;
+        if (y < 0) return false;
+        if (x >= gridWidth) return false;
+        if (y >= gridHeight) return false;
+
+        return true;
     }
 }
