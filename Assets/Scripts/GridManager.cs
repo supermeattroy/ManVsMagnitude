@@ -4,7 +4,7 @@ using System.Collections;
 public class GridManager : MonoBehaviour {
 
     public int gridWidth, gridHeight;
-    GameObject[,] grid = new GameObject[10,10];
+    GridNode[,] grid = new GridNode[10,10];
 
 	void Awake () {
 	    foreach (Transform child in transform) {            //Get all the grid nodes and store them in array
@@ -13,7 +13,7 @@ public class GridManager : MonoBehaviour {
             holder += new Vector3(22.5f, 0f, 22.5f);
             x = System.Convert.ToInt32(holder.x * .2f);
             y = System.Convert.ToInt32(holder.z * .2f);
-            grid[x, y] = child.gameObject;
+            grid[x, y] = child.gameObject.GetComponent<GridNode>();
 
             child.name = "Node (" + x + ", " + y + ")";     //Label the node and give it coordinates
             child.GetComponent<GridNode>().x = x;
@@ -23,14 +23,21 @@ public class GridManager : MonoBehaviour {
 
     public Vector3 Find(int x, int y)                       //Returns location of node (x, y)
     {
+        if (!GridBounds(x, y)) throw new System.Exception("Node location out of bounds");
         return grid[x, y].transform.position;
+    }
+
+    public GridNode FindNode(int x, int y)
+    {
+        if (!GridBounds(x, y)) throw new System.Exception("Node coordinates out of bounds");
+        return grid[x, y];
     }
 
     public void Smash(int x, int y)                         //Sets node (x, y) inactive
     {
         if (!GridBounds(x, y)) return;
 
-        grid[x, y].SetActive(false);
+        grid[x, y].Destroy();
     }
 
     bool GridBounds(int x, int y)                           //returns false if node (x, y) is beyond grid limits

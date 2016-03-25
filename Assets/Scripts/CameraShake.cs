@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public static class CameraShake  {
+public static class CameraShake {
 
     static public IEnumerator Shake(float duration, float magnitude)
     { 
