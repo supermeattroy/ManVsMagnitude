@@ -57,4 +57,10 @@ public class Unit : MonoBehaviour {
         this.destination.y = transform.position.y; //Disable verticality for now
         isMoving = true;
     }
+
+    public void Select(bool select)
+    {
+        if (select) GetComponent<Renderer>().material.color = Color.blue;
+        else GetComponent<Renderer>().material.color = Color.white;
+    }
 }

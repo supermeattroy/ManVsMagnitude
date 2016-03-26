@@ -4,7 +4,7 @@ using System.Collections;
 public class GridNode : MonoBehaviour {
 
     public int x, y;
-    GridNode[] adjacent = new GridNode[4];
+    GridNode[] adjacent = new GridNode[8];
     GridManager gm;
     public bool hasBase;
     GameObject pBase;
@@ -23,7 +23,19 @@ public class GridNode : MonoBehaviour {
 
         try { adjacent[3] = gm.FindNode(x + 1, y); }
         catch { adjacent[0] = null; }
-        
+
+        try { adjacent[4] = gm.FindNode(x + 1, y + 1); }
+        catch { adjacent[0] = null; }
+
+        try { adjacent[5] = gm.FindNode(x + 1, y - 1); }
+        catch { adjacent[0] = null; }
+
+        try { adjacent[6] = gm.FindNode(x - 1, y - 1); }
+        catch { adjacent[0] = null; }
+
+        try { adjacent[7] = gm.FindNode(x - 1, y + 1); }
+        catch { adjacent[0] = null; }
+
         if (hasBase) pBase = Instantiate(Resources.Load("Prefabs/PlayerBase", typeof(GameObject)), transform.position, transform.rotation) as GameObject;
     }
 	
@@ -42,5 +54,6 @@ public class GridNode : MonoBehaviour {
         gameObject.SetActive(false);
         Destroy(pBase);
         hasBase = false;
+        Instantiate(Resources.Load("Particles/Demolish Particles"), transform.position, Quaternion.Euler(-90, 0, 0));
     }
 }

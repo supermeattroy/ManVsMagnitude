@@ -34,27 +34,30 @@ public class CommanderUnitControl : MonoBehaviour {
                     {
                         if (!Input.GetKey(KeyCode.LeftShift))//If multiselect key is not being held, make this the only selected unit
                         {
-                            selectedUnits.Clear();
+                            Clear();
                             selectedUnits.Add(clickedUnit);
+                            clickedUnit.Select(true);       //change unit color for selection
                         }
                         else {//Otherwise, deselect this unit
                             selectedUnits.Remove(clickedUnit);
+                            clickedUnit.Select(false);      //change unit color for selection
                         }
                     }
                     else//Otherwise add it as a selected unit
                     {
                         if (!Input.GetKey(KeyCode.LeftShift)) //If multiselect key is not being held, deselect all other units
                         {
-                            selectedUnits.Clear();
+                            Clear();
                         }
                         selectedUnits.Add(clickedUnit);
+                        clickedUnit.Select(true);       //change unit color for selection
                     }
                 }
                 else {
                     Debug.DrawLine(transform.position, mousePosWorld, Color.red);
                     if (!Input.GetKey(KeyCode.LeftShift)) //If multiselect key is not being held, deselect all units
                     {
-                        selectedUnits.Clear();
+                        Clear();
                     }
                 }
             }
@@ -62,7 +65,7 @@ public class CommanderUnitControl : MonoBehaviour {
                 Debug.DrawLine(transform.position, mousePosWorld, Color.grey);
                 if (!Input.GetKey(KeyCode.LeftShift)) //If multiselect key is not being held, deselect all units
                 {
-                    selectedUnits.Clear();
+                    Clear();
                 }
             }
         }
@@ -85,4 +88,12 @@ public class CommanderUnitControl : MonoBehaviour {
             }
         }
 	}
+
+    void Clear()
+    {
+        foreach(Unit unit in selectedUnits) {
+            unit.Select(false);
+        }
+        selectedUnits.Clear();
+    }
 }
